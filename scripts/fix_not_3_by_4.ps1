@@ -15,24 +15,34 @@ foreach ($imgPath in $images) {
     }
 
     # Get image dimensions
-    $dimensions = magick identify -format "%w %h" $imgPath
+    $dimensions = magick identify -format "%w %h" "$imgPath" 2>$null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Error: Cannot process $imgPath"
+        continue
+    }
+
     $width, $height = $dimensions -split " "
+
+    # Ensure dimensions are numeric
+    if (-not ($width -match '^\d+$') -or -not ($height -match '^\d+$')) {
+        Write-Host "Skipping: Could not read dimensions - $imgPath"
+        continue
+    }
 
     # Calculate correct height for 3:4 aspect ratio
     $correctHeight = [math]::Round(($width / 3) * 4)
 
     if ($height -ne $correctHeight) {
-        $topBottomPadding = [math]::Round(($correctHeight - $height) / 2)
-
-        # Decide padding color dynamically
+        # Decide padding color dynamically based on image brightness
         $paddingColor = "white"
-        if ($width -ge 800) {  # Example condition, adjust as needed
+        $brightnessCheck = magick convert "jpg:$imgPath" -colorspace Gray -format "%[fx:mean]" info:
+        if ($brightnessCheck -lt 0.5) {
             $paddingColor = "black"
         }
 
         # Overwrite the image with adjusted version
-        magick convert $imgPath -gravity center -background $paddingColor -extent "$width"x"$correctHeight" $imgPath
-        
+        cmd /c "magick ""jpg:$imgPath"" -gravity center -background $paddingColor -extent ""$width""x""$correctHeight"" ""jpg:$imgPath"""
+
         Write-Host "Fixed: $imgPath ($width x $height → $width x $correctHeight) with $paddingColor padding"
     } else {
         Write-Host "Already 3:4: $imgPath"
