@@ -57,7 +57,7 @@ $files = Get-ChildItem -Path $DirectoryPath -File | Where-Object {
 }
 
 # Encode API key for Basic Auth
-$base64Auth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$apiKey:"))
+$base64Auth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$apiKey"))
 
 foreach ($file in $files) {
     Write-Host "Compressing $($file.Name)..."
