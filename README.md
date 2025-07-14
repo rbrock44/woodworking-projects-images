@@ -1,8 +1,16 @@
 # WoodworkingProjectsImages
 
-This repo's purpose is to hold all of my wood working images
+This repo's purpose is to hold all of my wood working images. Scripts have been created to automate various tasks
 
-Scripts have been created to automate various tasks
+User must install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts
+
+The following should be done to all images uploaded to this repo:
+* Compress (I used [TinyPNG](https://tinypng.com/) previously)
+  * [Compress script](#compress-tinypngps1)
+* Aspect ratio of 4:3 (height:width)
+  * [Find not 4:3 aspect ratio script](#find_not_3_by_4_aspect_ratiops1)
+  * [Fix not 4:3 script](#fix_not_3_by_4ps1)
+  * Please delete not_3_by_4.txt file before pushing images to repo!
 
 # Scripts
 
@@ -12,6 +20,14 @@ Scripts have been created to automate various tasks
   - Must enter api-key (**Don't Commit to Github**)
   - EXAMPLE(S): 
     - .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
+
+## create-thumbnails.ps1
+  - Creates 200x150 pixel thumbnails for .jpg images that don't already have corresponding thumbnails
+    - Finds all .jpg files that don't have -200x250.jpg (20250430_1716.jpg -> 20250430_1716-200x150.jpg)
+    - Creates -200x250.jpg for those files
+  - EXAMPLE(S):
+    - .\create-thumbnails.ps1
+    - .\create-thumbnails.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
 
 ## find_not_3_by_4_aspect_ratio.ps1
   - Finds the filenames of all images that are not 3 by 4 aspect ratio 
@@ -32,15 +48,4 @@ Scripts have been created to automate various tasks
   - renames all matching formats to *YYYYMMDD_HHMM.jpg*, all images in this repo follow this format
 - EXAMPLE(S):
   - .\rename-pxl-files.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
-  
-The following should be done to all images uploaded to that repo: </br>
-* compressed (I used [TinyPNG](https://tinypng.com/) previously).
-* Aspect ratio of 4:3 (height:width)
-  * User must install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts 
-  * [find_not_3_by_4_aspect_ratio.ps1](https://github.com/rbrock44/woodworking-projects-images/blob/master/scripts/find_not_3_by_4_aspect_ratio.ps1) will create a not_3_by_4.txt file and output problem image paths
-  * [fix_not_3_by_4.ps1](https://github.com/rbrock44/woodworking-projects-images/blob/master/scripts/fix_not_3_by_4.ps1) will read the not_3_by_4.txt file and pad black or white to make image 4:3 aspect ratio
-  * Please delete not_3_by_4.txt file before pushing images to repo!
-
-
-
 
