@@ -22,9 +22,9 @@ The following should be done to all images uploaded to this repo:
     - .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
 
 ## create-thumbnails.ps1
-  - Creates 200x150 pixel thumbnails for .jpg images that don't already have corresponding thumbnails
-    - Finds all .jpg files that don't have -200x250.jpg (20250430_1716.jpg -> 20250430_1716-200x150.jpg)
-    - Creates -200x250.jpg for those files
+  - Creates 150x200 pixel thumbnails for .jpg images that don't already have corresponding thumbnails
+    - Finds all .jpg files that don't have -150x200.jpg (20250430_1716.jpg -> 20250430_1716-150x200.jpg)
+    - Creates -150x200.jpg for those files
   - EXAMPLE(S):
     - .\create-thumbnails.ps1
     - .\create-thumbnails.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"

@@ -1,14 +1,14 @@
 <#
 .SYNOPSIS
-    Creates 200x150 pixel thumbnails for .jpg images that don't already have corresponding thumbnails.
+    Creates 150x200 pixel thumbnails for .jpg images that don't already have corresponding thumbnails.
 
 .DESCRIPTION
     This script:
     - Accepts an optional directory path as a parameter.
     - Uses one directory back from the current script location if no path is provided.
     - Recursively scans for .jpg files in all directories and subdirectories.
-    - For each .jpg file, checks if a corresponding thumbnail (e.g., "20250430_1716-200x150.jpg") exists.
-    - If no thumbnail exists, creates a 200x150 pixel copy with the appropriate naming convention.
+    - For each .jpg file, checks if a corresponding thumbnail (e.g., "20250430_1716-150x200.jpg") exists.
+    - If no thumbnail exists, creates a 150x200 pixel copy with the appropriate naming convention.
     - Uses .NET System.Drawing to resize images.
 
 .PARAMETER DirectoryPath
@@ -26,7 +26,7 @@
 .NOTES
     Requires .NET Framework with System.Drawing support.
     Only processes files with .jpg extension.
-    Creates thumbnails with "-200x150" suffix before the file extension.
+    Creates thumbnails with "-150x200" suffix before the file extension.
 #>
 
 param (
@@ -92,13 +92,13 @@ $skippedCount = 0
 $errorCount = 0
 
 foreach ($file in $files) {
-    # Skip files that are already thumbnails (contain "-200x150")
-    if ($file.BaseName -match '-200x150$') {
+    # Skip files that are already thumbnails (contain "-150x200")
+    if ($file.BaseName -match '-150x200$') {
         continue
     }
 
     # Create the expected thumbnail name
-    $thumbnailName = "$($file.BaseName)-200x150$($file.Extension)"
+    $thumbnailName = "$($file.BaseName)-150x200$($file.Extension)"
     $thumbnailPath = Join-Path $file.DirectoryName $thumbnailName
 
     # Check if thumbnail already exists
