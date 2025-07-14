@@ -47,8 +47,8 @@ function Create-Thumbnail {
     param (
         [string]$SourcePath,
         [string]$DestinationPath,
-        [int]$Width = 200,
-        [int]$Height = 150
+        [int]$Width = 150,
+        [int]$Height = 200
     )
 
     try {
