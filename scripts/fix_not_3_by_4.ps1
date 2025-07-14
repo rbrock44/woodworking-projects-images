@@ -36,7 +36,7 @@ foreach ($imgPath in $images) {
         # Decide padding color dynamically based on image brightness
         # harcoded to black for now 2025/03/01 - $paddingColor = "white"
         $paddingColor = "black"
-        $brightnessCheck = magick convert "jpg:$imgPath" -colorspace Gray -format "%[fx:mean]" info:
+        $brightnessCheck = magick "jpg:$imgPath" -colorspace Gray -format "%[fx:mean]" info:
         if ($brightnessCheck -lt 0.5) {
             $paddingColor = "black"
         }

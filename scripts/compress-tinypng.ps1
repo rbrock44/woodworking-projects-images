@@ -12,11 +12,11 @@
     Optional. The path to the directory containing image files.
 
 .EXAMPLE
-    .\Compress-TinyPng.ps1
+    .\compress-tinypng.ps1
     Compresses files in the script's location.
 
 .EXAMPLE
-    .\Compress-TinyPng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood2"
+    .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood2"
     Creates "Wood2-tiny" and compresses images into it.
 
 .NOTES
