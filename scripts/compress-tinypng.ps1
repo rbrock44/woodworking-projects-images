@@ -16,8 +16,8 @@
     Compresses files in the script's location.
 
 .EXAMPLE
-    .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood2"
-    Creates "Wood2-tiny" and compresses images into it.
+    .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
+    Creates "Wood-tiny" and compresses images into it.
 
 .NOTES
     Requires a valid TinyPNG API key.

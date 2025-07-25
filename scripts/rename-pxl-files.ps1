@@ -21,7 +21,7 @@
 
 .EXAMPLE
     .\rename-pxl-files.ps1 -DirectoryPath "C:\Photos"
-    .\rename-pxl-files.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood2"
+    .\rename-pxl-files.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
     Runs in the specified directory.
 
 .NOTES
