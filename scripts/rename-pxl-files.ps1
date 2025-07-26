@@ -66,7 +66,6 @@ foreach ($file in $files) {
             }
         }
 
-        $newPath = Join-Path $DirectoryPath $newName
         Rename-Item -Path $file.FullName -NewName $newName
         Write-Host "Renamed '$($file.Name)' to '$newName'"
     } else {
