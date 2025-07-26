@@ -6,14 +6,14 @@ User must install [ImageMagick](https://imagemagick.org/script/download.php#wind
 
 # How to Add Photos
   1. In a seperate folder outside this repo:
-    - Run [Rename files scripts](#rename-pxl-filesps1)
-      - Manually fix any files the script didn't, matching this format *YYYYMMDD_HHMM.jpg*  
-    - Run [Compress script](#compress-tinypngps1) 
+      - Run [Rename files scripts](#rename-pxl-filesps1)
+        - Manually fix any files the script didn't, matching this format *YYYYMMDD_HHMM.jpg*  
+      - Run [Compress script](#compress-tinypngps1) 
   2. Move photos to correct repo subfolder (add new subfolder(s) if needed)
   3. Run [Find not 4:3 aspect ratio script](#find_not_3_by_4_aspect_ratiops1) 
-  4. If (*not_3_by_4.txt* exists) 
-    - Run [Fix not 4:3 script](#fix_not_3_by_4ps1)
-    - Delete *not_3_by_4.txt* -- very important to delete for the next run
+  4. If (*not_3_by_4.txt* file exists) 
+      - Run [Fix not 4:3 script](#fix_not_3_by_4ps1)
+      - Delete *not_3_by_4.txt* -- very important to delete for the next run
   5. Run [Create thumbnail script](#create-thumbnailsps1)  
   6. All done, push to repo
 
