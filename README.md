@@ -4,13 +4,18 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 
 User must install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts
 
-The following should be done to all images uploaded to this repo:
-* Compress (I used [TinyPNG](https://tinypng.com/) previously)
-  * [Compress script](#compress-tinypngps1)
-* Aspect ratio of 4:3 (height:width)
-  * [Find not 4:3 aspect ratio script](#find_not_3_by_4_aspect_ratiops1)
-  * [Fix not 4:3 script](#fix_not_3_by_4ps1)
-  * Please delete not_3_by_4.txt file before pushing images to repo!
+# How to Add Photos
+  1. In a seperate folder outside this repo:
+    - Run [Rename files scripts](#rename-pxl-filesps1)
+      - Manually fix any files the script didn't, matching this format *YYYYMMDD_HHMM.jpg*  
+    - Run [Compress script](#compress-tinypngps1) 
+  2. Move photos to correct repo subfolder (add new subfolder(s) if needed)
+  3. Run [Find not 4:3 aspect ratio script](#find_not_3_by_4_aspect_ratiops1) 
+  4. If (*not_3_by_4.txt* exists) 
+    - Run [Fix not 4:3 script](#fix_not_3_by_4ps1)
+    - Delete *not_3_by_4.txt* -- very important to delete for the next run
+  5. Run [Create thumbnail script](#create-thumbnailsps1)  
+  6. All done, push to repo
 
 # Scripts
 
