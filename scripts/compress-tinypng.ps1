@@ -27,16 +27,26 @@ param (
     [string]$DirectoryPath = $PSScriptRoot
 )
 
-# Your TinyPNG API Key
-$apiKey = "YOUR_API_KEY_HERE"
+# Path to ../.env.local (project root)
+$envPath = Join-Path $PSScriptRoot "..\.env.local"
 
-# Validate API key
-if ($apiKey -eq "YOUR_API_KEY_HERE") {
-    Write-Error "Please set your TinyPNG API key in the script."
+if (-Not (Test-Path $envPath)) {
+    Write-Error "❌ .env.local file not found at: $envPath"
     exit 1
 }
 
-# Make sure the path exists
+$envContent = Get-Content $envPath
+$apiKeyLine = $envContent | Where-Object { $_ -match "^TINIFY_API_KEY\s*=" }
+
+if (-Not $apiKeyLine) {
+    Write-Error "❌ TINIFY_API_KEY not found in .env.local"
+    exit 1
+}
+
+$apiKey = $apiKeyLine -replace "^TINIFY_API_KEY\s*=\s*", ""
+
+Write-Host "✅ Loaded TinyPNG API Key: $apiKey"
+
 if (-not (Test-Path $DirectoryPath)) {
     Write-Error "Directory does not exist: $DirectoryPath"
     exit 1

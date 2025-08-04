@@ -9,6 +9,7 @@
 
 - [What's My Purpose?](#-whats-my-purpose)
 - [How to Use](#-how-to-use)
+  - [Environment Setup](#environment-setup)
   - [List of Scripts](#list-of-scripts)
   - [How to Add Photos](#how-to-add-photos)
 - [Technologies](#-technologies)
@@ -27,18 +28,27 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 
 ---
 
+### Environment Setup
+
+1. **Copy the example env file**  
+  Create your local `.env.local` file by copying the template:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+2. Replace API Key
+  Open .env.local in your editor and replace the placeholder with your actual TinyPng API Key
+
+---
+
 ### How to Add Photos
   1. In a seperate folder outside this repo:
       - Run [Rename files scripts](#rename-pxl-filesps1)
         - Manually fix any files the script didn't, matching this format *YYYYMMDD_HHMM.jpg*  
-      - Run [Compress script](#compress-tinypngps1) 
+      - Run [Compress script](#compress-tinypngps1) - [Environment Setup](#environment-setup) needed
   2. Move photos to correct repo subfolder (add new subfolder(s) if needed)
-  3. Run [Find not 4:3 aspect ratio script](#find_not_3_by_4_aspect_ratiops1) 
-  4. If (*not_3_by_4.txt* file exists) 
-      - Run [Fix not 4:3 script](#fix_not_3_by_4ps1)
-      - Delete *not_3_by_4.txt* -- very important to delete for the next run
-  5. Run [Create thumbnail script](#create-thumbnailsps1)  
-  6. All done, push to repo
+  3. Run [Process Images](#process-imagesps1)
+  4. All done, push to repo
 
 ---
 
@@ -73,6 +83,11 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 - EXAMPLE(S):
   - .\fix_not_3_by_4.ps1
 
+#### process-images.ps1
+- When photos have been moved to this repo, this super script runs several scripts to get the images ready
+- EXAMPLE(S):
+  - .\process-images.ps1
+
 #### rename-pxl-files.ps1
 - When getting the photos off my andriod phone they are in the format *PXL_YYYYMMDD_HHMMSS###.jpg*
   - renames all matching formats to *YYYYMMDD_HHMM.jpg*, all images in this repo follow this format
@@ -90,6 +105,7 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 
 * Install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts
 * Clone [repo](https://github.com/rbrock44/woodworking-projects-images)
+* [Environment Setup](#environment-setup)
 
 ---
 
