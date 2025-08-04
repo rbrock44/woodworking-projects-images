@@ -19,7 +19,7 @@
 
 ## 🧠 What's My Purpose?
 
-This repo's purpose is to hold all of my wood working images. Scripts have been created to automate various tasks. The corresponding [Woodworking Projects Website](https://woodworking-projects.ryan-brock.com/)
+This repo's purpose is to hold all of my wood working images. Scripts have been created to automate various tasks. The corresponding [Woodworking Projects Website](https://woodworking-projects.ryan-brock.com/)/[Repo](https://github.com/rbrock44/woodworking-projects)
 
 ---
 
@@ -89,7 +89,7 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 ## 🚀 Getting Started (Local Setup)
 
 * Install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts
-* Clone [repo](https://github.com/rbrock44/woodworking-project-images)
+* Clone [repo](https://github.com/rbrock44/woodworking-projects-images)
 
 ---
 
