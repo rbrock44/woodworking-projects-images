@@ -45,7 +45,7 @@ if (-Not $apiKeyLine) {
 
 $apiKey = $apiKeyLine -replace "^TINIFY_API_KEY\s*=\s*", ""
 
-Write-Host "✅ Loaded TinyPNG API Key: $apiKey"
+Write-Host "Loaded TinyPNG API Key"
 
 if (-not (Test-Path $DirectoryPath)) {
     Write-Error "Directory does not exist: $DirectoryPath"

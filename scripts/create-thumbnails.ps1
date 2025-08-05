@@ -103,7 +103,7 @@ foreach ($file in $files) {
 
     # Check if thumbnail already exists
     if (Test-Path $thumbnailPath) {
-        Write-Host "Thumbnail already exists for '$($file.Name)' - skipping"
+        # Write-Host "Thumbnail already exists for '$($file.Name)' - skipping"
         $skippedCount++
         continue
     }
