@@ -43,7 +43,7 @@ $files = Get-ChildItem -Path $DirectoryPath -File -Filter "PXL_*.jpg"
 
 foreach ($file in $files) {
     # Match pattern PXL_YYYYMMDD_HHMMSS###
-    if ($file.BaseName -match '^PXL_(\d{8})_(\d{4})\d{2,}$') {
+    if ($file.BaseName -match '^PXL_(\d{8})_(\d{4})(?:\d{2}|\.MP\d{3})$') {
         $date = $matches[1]
         $time = $matches[2]
 
