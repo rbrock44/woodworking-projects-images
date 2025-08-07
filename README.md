@@ -11,6 +11,14 @@
 - [How to Use](#-how-to-use)
   - [Environment Setup](#environment-setup)
   - [List of Scripts](#list-of-scripts)
+    - [compress-tinypng](#compress-tinypngps1)
+    - [create-thumbnail](#create-thumbnailsps1)
+    - [find_not_3_by_4_aspect_ratio](#find_not_3_by_4_aspect_ratiops1)
+    - [fix_not_3_by_4](#fix_not_3_by_4ps1)
+    - [generate-json](#generate-jsonps1)
+    - [pre-process-images](#pre-process-imagesps1)
+    - [process-images](#process-imagesps1)
+    - [rename-pxl-images](#rename-pxl-filesps1)
   - [How to Add Photos](#how-to-add-photos)
 - [Technologies](#-technologies)
 - [Getting Started (Local Setup)](#-getting-started-local-setup)
@@ -83,13 +91,31 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 - EXAMPLE(S):
   - .\fix_not_3_by_4.ps1
 
+#### generate-json.ps1
+- Creates a JSON file based on original images (not thumbnails) located in ../2025/lathe-estate-sale/ (../-Year/-Name/)
+  - Accepts -Year and -Name parameters
+  - Outputs it as {-Name parameter}.json in the script's folder
+  - Used for generating and quickly adding new projects to the [project-list.json](https://github.com/rbrock44/woodworking-projects/blob/master/public/project-list.json)
+- EXAMPLE(S):
+  - .\generate-json.ps1 -Year 2025 -Name "lathe-estate-sale"
+
+#### pre-process-images.ps1
+- When gathering photos (before moving to this repo), this super script helps rename and compress photos
+  - Runs [rename-pxl-images](#rename-pxl-filesps1)
+  - Then runs [compress-tinypng](#compress-tinypngps1)
+- EXAMPLE(S):
+  - .\pre-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" 
+
 #### process-images.ps1
 - When photos have been moved to this repo, this super script runs several scripts to get the images ready
+  - Runs [find_not_3_by_4_aspect_ratio](#find_not_3_by_4_aspect_ratiops1)
+  - If `not_3_by_4.txt` is found, runs [fix_not_3_by_4](#fix_not_3_by_4ps1)
+  - Lastly runs [create-thumbnail](#create-thumbnailsps1)
 - EXAMPLE(S):
   - .\process-images.ps1
 
 #### rename-pxl-files.ps1
-- When getting the photos off my andriod phone they are in the format *PXL_YYYYMMDD_HHMMSS###.jpg*
+- When getting the photos off my andriod phone they are in the format *PXL_YYYYMMDD_HHMMSS###.jpg* || *PXL_YYYYMMDD_HHMMSS.MP###.jpg*
   - renames all matching formats to *YYYYMMDD_HHMM.jpg*, all images in this repo follow this format
 - EXAMPLE(S):
   - .\rename-pxl-files.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
