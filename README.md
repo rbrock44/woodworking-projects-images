@@ -11,6 +11,7 @@
 - [How to Use](#-how-to-use)
   - [Environment Setup](#environment-setup)
   - [List of Scripts](#list-of-scripts)
+    - [auto-process-images](#auto-process-imagesps1)
     - [compress-tinypng](#compress-tinypngps1)
     - [create-thumbnail](#create-thumbnailsps1)
     - [find_not_3_by_4_aspect_ratio](#find_not_3_by_4_aspect_ratiops1)
@@ -50,22 +51,43 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 ---
 
 ### How to Add Photos
+
+***If only one project being added (or added to)***
   1. In a seperate folder outside this repo:
-      - Run [Rename files scripts](#rename-pxl-filesps1)
-        - Manually fix any files the script didn't, matching this format *YYYYMMDD_HHMM.jpg*  
-      - Run [Compress script](#compress-tinypngps1) - [Environment Setup](#environment-setup) needed
+      - **[Environment Setup](#environment-setup) needed**
+      - Run [auto process images](#pre-process-imagesps1)
+        - .\auto-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" -Name "lathe-estate-sale"
+
+***If more than one project being added (or added to)***
+  1. In a seperate folder outside this repo:
+      - **[Environment Setup](#environment-setup) needed**
+      - Run [pre-process images](#pre-process-imagesps1)
+        - .\pre-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
   2. Move photos to correct repo subfolder (add new subfolder(s) if needed)
   3. Run [Process Images](#process-imagesps1)
+      - .\process-images.ps1
   4. All done, push to repo
+  5. **Optional:** Run [generate json](#generate-jsonps1) to assist in adding new project to [project-list.json](https://github.com/rbrock44/woodworking-projects/blob/master/public/project-list.json)
 
 ---
 
 ### List of Scripts
 
+#### auto-process-images.ps1
+  - Designed to fully automate image intake for one project (at a time)
+    - Runs [pre-process images](#pre-process-imagesps1)
+    - Moves images to RepoPath\Year\Name
+    - Runs [Process Images](#process-imagesps1)
+    - Asks to run [generate json](#generate-jsonps1)
+  - EXAMPLE(S): 
+    - .\auto-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" -Name "lathe-estate-sale"
+    - .\auto-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" -Name "lathe" -Year 2025
+    - .\auto-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" -Name "lathe" -Repo "C:\workspace\woodworking-project-images"
+
 #### compress-tinypng.ps1
   - Compresses all PNG and JPG images in a given folder using the TinyPNG API
     - Usually I have a new folder, not in this project that has the latest photos from my phone to upload
-  - Must enter api-key (**Don't Commit to Github**)
+  - [Environment Setup](#environment-setup) needed
   - EXAMPLE(S): 
     - .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
 

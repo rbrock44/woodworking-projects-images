@@ -43,7 +43,7 @@ $files = Get-ChildItem -Path $DirectoryPath -File -Filter "PXL_*.jpg"
 
 foreach ($file in $files) {
     # Match pattern PXL_YYYYMMDD_HHMMSS###
-    if ($file.BaseName -match '^PXL_(\d{8})_(\d{4})(?:\d{2}|\.MP\d{3})$') {
+    if ($file.BaseName -match '^PXL_(\d{8})_(\d{9})(?:\.MP)?(?:\.\w+)?$') {
         $date = $matches[1]
         $time = $matches[2]
 
@@ -53,11 +53,11 @@ foreach ($file in $files) {
 
         while (Test-Path (Join-Path $DirectoryPath $newName)) {
             # Increment minute
-            $datetime = [datetime]::ParseExact("$date$time", "yyyyMMddHHmm", $null)
+            $datetime = [datetime]::ParseExact("$date$shortTime", "yyyyMMddHHmm", $null)
             $datetime = $datetime.AddMinutes(1)
             $date = $datetime.ToString("yyyyMMdd")
-            $time = $datetime.ToString("HHmm")
-            $baseName = "$date" + "_" + "$time"
+            $shortTime = $datetime.ToString("HHmm")
+            $baseName = "$date" + "_" + "$shortTime"
             $newName = "$baseName.jpg"
             $counter++
             if ($counter -gt 1000) {
