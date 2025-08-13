@@ -42,10 +42,12 @@ Write-Host "RepoPath: $RepoPath"
 # Step 1: Run pre-process-images.ps1 with DirectoryPath parameter
 Run-ScriptWithParams "pre-process-images.ps1" @{DirectoryPath = $DirectoryPath}
 
-# Step 2: Move contents from DirectoryPath to RepoPath-tiny/Year/Name
-$destinationPath = Join-Path "$RepoPath-tiny" "$Year\$Name"
+$tinyDirectoryPath = "$DirectoryPath-tiny"
+
+# Step 2: Move contents from DirectoryPath-tiny to RepoPath-tiny/Year/Name
+$destinationPath = Join-Path "$RepoPath" "$Year\$Name"
 Write-Host ""
-Write-Host "Moving contents from '$DirectoryPath' to '$destinationPath'..."
+Write-Host "Moving contents from '$tinyDirectoryPath' to '$destinationPath'..."
 
 # Create destination directory if it doesn't exist
 if (-not (Test-Path $destinationPath)) {
@@ -55,7 +57,7 @@ if (-not (Test-Path $destinationPath)) {
 
 # Move all contents from source to destination
 try {
-    Get-ChildItem -Path $DirectoryPath -Force | Move-Item -Destination $destinationPath -Force
+    Get-ChildItem -Path $tinyDirectoryPath -Force | Move-Item -Destination $destinationPath -Force
     Write-Host "Successfully moved contents to destination directory"
 } catch {
     Write-Error "Failed to move contents: $_"

@@ -46,7 +46,8 @@ foreach ($file in $files) {
     if ($file.BaseName -match '^PXL_(\d{8})_(\d{9})(?:\.MP)?(?:\.\w+)?$') {
         $date = $matches[1]
         $time = $matches[2]
-
+        $shortTime = $time.Substring(0, 4)
+        
         $baseName = "$date" + "_" + "$time"
         $newName = "$baseName.jpg"
         $counter = 0
