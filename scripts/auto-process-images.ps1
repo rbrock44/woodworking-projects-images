@@ -4,7 +4,7 @@ param(
     [string]$Name,
     [Parameter(Mandatory=$true)]
     [string]$DirectoryPath,
-    [string]$RepoPath = "C:\workspace\woodworking-projest-images"
+    [string]$RepoPath = "C:\workspace\woodworking-projects-images"
 )
 
 $scriptDir = $PSScriptRoot
