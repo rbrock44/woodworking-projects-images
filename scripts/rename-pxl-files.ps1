@@ -48,7 +48,7 @@ foreach ($file in $files) {
         $time = $matches[2]
         $shortTime = $time.Substring(0, 4)
         
-        $baseName = "$date" + "_" + "$time"
+        $baseName = "$date" + "_" + "$shortTime"
         $newName = "$baseName.jpg"
         $counter = 0
 
