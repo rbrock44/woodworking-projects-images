@@ -3,39 +3,23 @@
 > This repo's purpose is to hold all of my wood working images. <br/>
 > [LIVE - Woodworking Projects Website](https://woodworking-projects.ryan-brock.com/)
 
----
+## Table of Contents
 
-## 📚 Table of Contents
-
-- [What's My Purpose?](#-whats-my-purpose)
-- [How to Use](#-how-to-use)
+- [What's My Purpose?](#whats-my-purpose)
+- [How to Use](#how-to-use)
   - [Environment Setup](#environment-setup)
-  - [List of Scripts](#list-of-scripts)
-    - [auto-process-images](#auto-process-imagesps1)
-    - [compress-tinypng](#compress-tinypngps1)
-    - [create-thumbnail](#create-thumbnailsps1)
-    - [find_not_3_by_4_aspect_ratio](#find_not_3_by_4_aspect_ratiops1)
-    - [fix_not_3_by_4](#fix_not_3_by_4ps1)
-    - [generate-json](#generate-jsonps1)
-    - [pre-process-images](#pre-process-imagesps1)
-    - [process-images](#process-imagesps1)
-    - [rename-pxl-images](#rename-pxl-filesps1)
   - [How to Add Photos](#how-to-add-photos)
-- [Technologies](#-technologies)
-- [Getting Started (Local Setup)](#-getting-started-local-setup)
+  - [List of Scripts](#list-of-scripts)
+- [Technologies](#technologies)
+- [Getting Started (Local Setup)](#getting-started-local-setup)
   - [Run Locally](#run-locally)
+- [How to Contribute](#how-to-contribute)
 
----
-
-## 🧠 What's My Purpose?
+## What's My Purpose?
 
 This repo's purpose is to hold all of my wood working images. Scripts have been created to automate various tasks. The corresponding [Woodworking Projects Website](https://woodworking-projects.ryan-brock.com/)/[Repo](https://github.com/rbrock44/woodworking-projects)
 
----
-
-## 🚦 How to Use
-
----
+## How to Use
 
 ### Environment Setup
 
@@ -48,14 +32,12 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 2. Replace API Key
   Open .env.local in your editor and replace the placeholder with your actual TinyPng API Key
 
----
-
 ### How to Add Photos
 
 ***If only one project being added (or added to)***
   1. In a seperate folder outside this repo:
       - **[Environment Setup](#environment-setup) needed**
-      - Run [auto process images](#pre-process-imagesps1)
+      - Run [auto process images](#auto-process-imagesps1)
         - .\auto-process-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood" -Name "lathe-estate-sale"
 
 ***If more than one project being added (or added to)***
@@ -68,8 +50,6 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
       - .\process-images.ps1
   4. All done, push to repo
   5. **Optional:** Run [generate json](#generate-jsonps1) to assist in adding new project to [project-list.json](https://github.com/rbrock44/woodworking-projects/blob/master/public/project-list.json)
-
----
 
 ### List of Scripts
 
@@ -142,23 +122,22 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 - EXAMPLE(S):
   - .\rename-pxl-files.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
 
-## 🛠 Technologies
+## Technologies
 
 - ImageMagick
 - Powershell
 
----
-
-## 🚀 Getting Started (Local Setup)
+## Getting Started (Local Setup)
 
 * Install [ImageMagick](https://imagemagick.org/script/download.php#windows) before running scripts
 * Clone [repo](https://github.com/rbrock44/woodworking-projects-images)
 * [Environment Setup](#environment-setup)
 
----
-
 ### Run Locally
 
 Run a script in the appropiate terminal
 
----
+## How to Contribute
+
+Found a typo or a small, obvious fix? Open a PR directly.
+Want to change behavior or add something bigger? Open an issue first so we can talk it through before you put in the work.
