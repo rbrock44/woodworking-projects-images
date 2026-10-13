@@ -71,6 +71,15 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
   - EXAMPLE(S): 
     - .\compress-tinypng.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
 
+#### create-midsize-images.ps1
+  - Creates 900x1200 pixel .webp copies for .jpg images that don't already have them
+    - Finds all .jpg files that don't have -900x1200.webp (20250430_1716.jpg -> 20250430_1716-900x1200.webp)
+    - Creates -900x1200.webp for those files, ~200KB instead of the ~1-2MB original
+    - The website shows these in its single image view, the original only full screen
+  - EXAMPLE(S):
+    - .\create-midsize-images.ps1
+    - .\create-midsize-images.ps1 -DirectoryPath "C:\Users\rbroc\Downloads\Wood"
+
 #### create-thumbnails.ps1
   - Creates 150x200 pixel thumbnails for .jpg images that don't already have corresponding thumbnails
     - Finds all .jpg files that don't have -150x200.jpg (20250430_1716.jpg -> 20250430_1716-150x200.jpg)
@@ -112,7 +121,8 @@ This repo's purpose is to hold all of my wood working images. Scripts have been 
 - When photos have been moved to this repo, this super script runs several scripts to get the images ready
   - Runs [find_not_3_by_4_aspect_ratio](#find_not_3_by_4_aspect_ratiops1)
   - If `not_3_by_4.txt` is found, runs [fix_not_3_by_4](#fix_not_3_by_4ps1)
-  - Lastly runs [create-thumbnail](#create-thumbnailsps1)
+  - Then runs [create-thumbnail](#create-thumbnailsps1)
+  - Lastly runs [create-midsize-images](#create-midsize-imagesps1)
 - EXAMPLE(S):
   - .\process-images.ps1
 

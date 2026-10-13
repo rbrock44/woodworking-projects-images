@@ -34,5 +34,8 @@ if (Test-Path $not43File) {
 # Step 3: Create thumbnails
 Run-Script "create-thumbnails.ps1"
 
+# Step 4: Create mid-size images
+Run-Script "create-midsize-images.ps1"
+
 Write-Host ""
 Write-Host "All steps completed successfully."
